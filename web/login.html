@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Sederhana</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            /* ====== GANTI BACKGROUND DI SINI ====== */
+            background: url("https://wallpaper.dog/large/5477511.jpg") /* Bisa kamu ganti dengan gambar */
+            background-size: cover;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.85);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            width: 300px;
+            max-width: 90%;
+            text-align: center;
+            box-sizing: border-box;
+            animation: slideIn 0.8s ease forwards; /* animasi muncul */
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        @keyframes slideIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h2 { margin-bottom: 20px; }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #6e8efb;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+
+        button:hover { background: #5a73d8; }
+
+        .message { margin-top: 15px; font-weight: bold; }
+        .error { color: red; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Login</h2>
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password">
+        <button onclick="login()">Masuk</button>
+        <p id="message" class="message"></p>
+    </div>
+
+    <script>
+        function login() {
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            const message = document.getElementById("message");
+
+            if (username === "admin" && password === "admin123") {
+                window.location.href = "jadwal.html";
+            } else {
+                message.textContent = "Username atau Password salah!";
+                message.className = "message error";
+            }
+        }
+    </script>
+
+</body>
+</html>
